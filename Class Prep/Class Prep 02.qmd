@@ -1,0 +1,50 @@
+---
+title: "Class Prep 02"
+author: "Brody Pinto"
+format: 
+  html:
+    embed-resources: true
+---
+
+1. Using either Anscombe’s quartet or the income/voter turnout graph as an example, explain why it’s valuable to look at data graphically instead of examining data only with summary statistics.
+
+```{r}
+summary(anscombe)
+```
+
+
+
+By looking at the data graphically (with the proper chart form) as opposed to just looking at the summary statistics is value in terms of identifying visual trends that would've otherwise been completely invisible if you just had the summary statistics. In the Anscombe's quartet example, the summary statistics would just tell you that the four data sets are practically identical while after a simple faceted scatterplot, it is apparent that the datasets are in fact very different.
+
+<br>
+
+2. Take a look at the bar plot in Figure 1.4. Give a couple of reasons for why the chart has “bad taste.”
+
+The three-dimensional aspect of the graph detracts from one's ability to interpret the results it's displaying. Also, the fact that the legend re-labels the continents is redundant.
+
+<br>
+
+3. Why might you not always want to maximize the data-to-ink ratio when making charts?
+
+We want our charts to be relatively "junk-free" by cleaning up the labels, removing useless color schemes, and getting rid of redundant labels, etc.
+
+<br>
+
+4. What do the authors mean when they say that “relative comparisons need a stable baseline” and how does that affect your ability to interpret the coloured stacked bar plot in Figure 1.11?
+
+This means that when comparing two or more groups of data, they must all refer to the same baseline (typically the x axis) so that it's easier to interpret absolute and relative changes between groups. The types that are farther away from the point of comparison - the x axis - are harder to visually compare than the types that are closer to the x axis.
+
+<br>
+
+5. What are two key takeaways from Sections 1.1 and 1.2?
+
+First, I found it so interesting that an analysis of human perception is required to ensure a visual is going to be a helpful one or not. Another key takeaway is that there is true value in graphical interpretations of data because it can tell a completely different story than the summary statistics can show.
+
+<br>
+
+6. What is one question that you have about the reading?
+
+Why did maximizing the data-to-ink ratio used to be encouraged when it came to data visualization?
+
+<br>
+

@@ -1,0 +1,60 @@
+---
+title: "Class Prep 01"
+author: "Brody Pinto"
+format: 
+  html:
+    embed-resources: true
+---
+
+a. What is your name and what is your class year (first-year, sophomore, junior, senior)?
+
+Brody Pinto; junior
+
+b. What is/are your major(s) and minor(s), either actual or intended?
+
+Data Science and Biology double-major, math minor intended
+
+c. Why did you decide to take this course?
+
+Really interested in the topic and am looking forward to another class with Matt!
+
+d. In what semester and year did you take STAT/DATA 234? STAT 213?
+
+I took both in 2023 Spring.
+
+e. Have you taken CS 140?
+
+Yes.
+
+f. Have you used Git before? If so, in what context?
+
+No.
+
+g. Before this course, did you use R Studio on your desktop?
+
+Yes.
+
+h. What is your hometown: city, state, country?
+
+Boulder, CO, USA
+
+i. Do you play a sport on campus? If so, what sport? If not, what is an activity that you do on or off-campus?
+
+TENNIS!
+
+j. What is your favorite TV show or movie or band/musical artist?
+
+Either Game of Thrones or Breaking Bad.
+
+k. Tell me something about yourself.
+
+I love to play and watch tennis.
+
+l. What are your expectations for this class and/or what do you hope to gain from this class?
+
+I hope to gain a better understanding of the options available to visualize all different types of data.
+
+
+
+
+

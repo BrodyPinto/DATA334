@@ -1,0 +1,133 @@
+---
+title: "Section 02: Basics"
+format: html
+---
+
+**GGPLOT BASICS**
+```{r}
+library(palmerpenguins)
+library(tidyverse)
+theme_set(theme_minimal())
+penguins
+
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_freqpoly() 
+
+## single categorical variable
+ggplot(data = penguins, aes(x = species)) +
+  geom_bar(colour = "mediumpurple4", fill = "mediumpurple1")
+
+## two quantitative variables
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point() +
+  geom_smooth()
+
+## two categorical variables
+ggplot(data = penguins, aes(x = species, y = island)) +
+  geom_bin_2d()
+```
+
+`FACET`
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_histogram(colour = "black", fill = "white", bins = 15) +
+  facet_wrap(~ species)
+```
+
+`STAT`
+```{r}
+ggplot(data = penguins, aes(x = species)) +
+  geom_bar(stat = "count") ## don't need stat = "count" because it's the default.
+
+penguin_sum <- penguins |>
+  group_by(species) |>
+  summarise(count = n())
+
+ggplot(data = penguin_sum, aes(x = species, y = count)) +
+  geom_bar(stat = "identity")
+## this is equivalent to geom_col
+ggplot(data = penguin_sum, aes(x = species, y = count)) +
+  geom_col()
+```
+
+`POSITION`
+```{r}
+ggplot(data = penguins, aes(x = species, fill = sex)) +
+  geom_bar(position = "stack") + ## don't need "stack" because it's default
+  scale_fill_viridis_d()
+
+penguins <- penguins |>
+  na.omit() ## gets rid of any row with NA
+
+penguins |> filter(!is.na(sex))
+
+ggplot(data = penguins, aes(x = species, fill = sex)) +
+  geom_bar(position = "dodge") + ## makes side-by-side barplots instead of stacked
+  scale_fill_viridis_d()
+```
+
+`COORDINATE_FUNCTION`
+```{r}
+ggplot(data = penguins, aes(x = species)) +
+  geom_bar() +
+  coord_polar()
+
+ggplot(data = penguins, aes(x = species)) + 
+  geom_bar() +
+  coord_flip() 
+```
+
+Exercise:
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(stat = "identity",
+             position = "identity") +
+  facet_null() +
+  coord_cartesian()
+```
+
+Exercise 1:
+```{r}
+## Exercise 1
+ggplot(data = penguins, aes(x = bill_length_mm)) +
+  geom_histogram(col = "white", fill = "black")
+
+## Exercise 2
+ggplot(data = penguins, aes(x = sex, y = body_mass_g)) +
+  geom_jitter(width = 0.2)
+
+## Exercise 3
+ggplot(data = penguins, aes(x = bill_length_mm, colour = species)) +
+  geom_freqpoly() 
+
+## Exercise 4
+## a. Global Aesthetic
+ggplot(data = penguins, aes(x = body_mass_g, y = bill_depth_mm, colour = species)) +
+  geom_point() +
+  geom_smooth()
+## b. Local Aesthetic
+ggplot(data = penguins, aes(x = body_mass_g, y = bill_depth_mm)) +
+  geom_point(aes(colour = species)) +
+  geom_smooth()
+
+## Exercise 5
+ggplot(data = penguins, aes(x = sex, y = bill_length_mm)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  facet_wrap(~ species) +
+  coord_cartesian()
+
+## Exercise 6
+ggplot(data = penguins, aes(x = sex, y = bill_length_mm, col = sex)) +
+  geom_bar(stat = "identity", position = "stack") +
+  facet_wrap(~ species) +
+  coord_cartesian()
+```
+
+
+
+
+
+
+
+
+
