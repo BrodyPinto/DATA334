@@ -1,0 +1,54 @@
+---
+title: "Section05-DATA234 Review"
+format: html
+---
+
+## 5.2 Exercises
+
+2. 
+```{r}
+library(tidyverse)
+library(readxl)
+library(here)
+library(ggrepel)
+df <- read_excel(here::here("data/slu_graduates_17_23.xlsx"))
+
+## fixes error in the data
+df <- df |> mutate(across(everything(),
+                          .fns = ~replace(., . ==  "STATS" , "STAT")))
+
+
+tidy_df <- df |> select(-starts_with("minor")) |>
+  pivot_longer(starts_with("major"), names_to = "major_num",
+               values_to = "major") |>
+  filter(!is.na(major)) |>
+  group_by(sex, major) |>
+  summarise(n_majors = n()) |>
+  ungroup() |>
+  pivot_wider(names_from = sex, values_from = n_majors) |>
+  mutate(prop_male = M/(`F`+M), total = M+`F`) |>
+  filter(total >= 50) |>
+  mutate(major = fct_reorder(major, prop_male))
+
+tidy_df
+
+mcss_df = tidy_df |>
+  filter(major %in% c("STAT", "MATH", "CS"))
+
+ggplot(data = tidy_df, aes(x = major, y = prop_male)) +
+  geom_segment(aes(xend = major, y = 0, yend = prop_male)) +
+  geom_point() +
+  geom_segment(data = mcss_df, aes(xend = major, y = 0, yend = prop_male), color = "darkgreen", linewidth = 2) +
+  geom_point(data = mcss_df, colour = "darkgreen", size = 3) +
+  coord_flip() +
+  geom_hline(yintercept = 0.5, col = "red") +
+  theme_minimal() +
+  theme(axis.text = element_text(size = 12),
+        axis.title = element_text(size = 20)) +
+  labs(caption = "Data Source: SLU Instiutional Research Office")
+
+```
+
+
+
+

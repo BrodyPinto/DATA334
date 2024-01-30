@@ -1,0 +1,132 @@
+---
+title: "Section 3.2 Notes"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+theme_set(theme_minimal())
+
+penguins_sum <- penguins |> group_by(species, year) |>
+  summarise(n_penguins = n()) |>
+  mutate(year = factor(year))
+
+ggplot(data = penguins_sum, aes(x = year, fill = species)) +
+  geom_col(aes(y = n_penguins)) +
+  theme_minimal() +
+  scale_fill_viridis_d()
+```
+
+Example 1: We prefer the second because it's easier to compare the three groups.
+
+Example 2: We prefer the second one because it includes zero.
+
+Ex 3: Same thing as ex 2, depends on the situation though. The first one is preferable, including zero as a y limit for this type of graph is a lot of wasted space.
+
+Ex 4: Pair one i prefer the colour, it uses the position of points so we can easily see which species has high vs low bill depths. Pair 2 i prefer the facet, the first plot has way too many colours.
+
+```{r}
+penguins <- penguins |> mutate(species_island_sex = interaction(species, 
+                                                                island,
+                                                                sex))
+ggplot(data = penguins |>
+         filter(!is.na(sex)), aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(colour = species_island_sex)) +
+  scale_colour_viridis_d() +
+  theme_minimal()
+
+
+ggplot(data = penguins |> filter(!is.na(sex)), 
+                                 aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point() +
+  facet_wrap(~ species_island_sex) +
+  theme_minimal()
+```
+
+```{r}
+## this is our attempt at a better representation
+ggplot(data = penguins |> filter(!is.na(sex)), 
+                                 aes(x = bill_length_mm, y = bill_depth_mm, colour = sex)) +
+  geom_point() +
+  facet_grid(species ~ island) +
+  theme_minimal()
+```
+
+
+Ex 5: Pie charts are bad because we're bad at estimating angles versus comparing on a common scale.
+
+Ex 6: We prefer the first one because it's easier to distinguish the different regions from eachother. Although the second one does have a higher data-to-ink ratio, being a lollipop plot.
+
+Ex 7:
+```{r}
+## sequential data
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(colour = species)) +
+  theme_minimal() +
+  scale_colour_brewer(type = "seq")
+
+## diverging data - good for political party divide
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(colour = species)) +
+  theme_minimal() +
+  scale_colour_brewer(type = "div")
+
+## qualitative data - this makes the most sense to use in this penguin example
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(colour = species)) +
+  theme_minimal() +
+  scale_colour_brewer(type = "qual")
+```
+
+## Exercise 1
+1. For the number of cases variable, would you use a sequential, diverging, or qualitative fill colour scale?
+
+Sequential (number of cases is clearly ordered: more cases would be a more "pop" colour).
+
+2. For the change in the number of cases variable, would you use a sequential, diverging, or qualitative fill colour scale?
+
+Diverging (change can be negative, positive, or zero).
+
+3. For the political party variable, would you use a sequential, diverging, or qualitative fill colour scale?
+
+Qualitative (only two party options, unordered)
+
+4. For the percent population change variable, would you use a sequential, diverging, or qualitative fill colour scale?
+
+Diverging (change can be negative, positive, or zero - neutral colour)
+
+
+## Exercise 2
+```{r}
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(col = species)) +
+  scale_color_viridis_d() ## d is for discrete variable
+
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(col = body_mass_g)) +
+  scale_color_viridis_c() ## c is for continuous variable
+
+ggplot(data = penguins, aes(x = bill_length_mm, y = bill_depth_mm)) +
+  geom_point(aes(col = body_mass_g)) +
+  scale_color_viridis_b() ## b is for binning a continuous variable (common in maps)
+```
+
+## Exercise 3
+```{r}
+library(tidyverse)
+library(here)
+hpi_df <- read_csv(here("data/hpi-tidy.csv"))
+ggplot(data = hpi_df, aes(x = Footprint, y = Wellbeing, colour = Region)) +
+  geom_point() +
+  theme(plot.background = element_rect(fill = "purple"),
+        panel.grid.major.y = element_blank(),
+        panel.grid.minor.y = element_blank(),
+        axis.text = element_text(colour = "red"),
+        legend.text = element_text(colour = "blue", size = 10),
+        axis.line = element_line(arrow = arrow()))
+```
+
+
+
+

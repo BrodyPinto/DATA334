@@ -1,0 +1,54 @@
+---
+title: "Take Home 01"
+author: "Brody Pinto"
+format: 
+  html:
+    embed-resources: true
+---
+
+**Statement of Integrity:** “All work presented is my own, and I have followed all rules for collaboration. If I used any AI on this assignment, I have clearly stated both (1) what my search prompt was and (2) what I used from the AI answer.”
+
+Signed by myself, Brody Pinto.
+
+**Question 1**
+
+Group 5 is easiest to see the overall trend because it is closer to the x-axis which acts as a common comparative baseline.
+
+**Question 2**
+
+a. Use diverging colour scale because percent change can be positive, zero, or negative.
+
+b. Use sequential colour scale because we want to easily see the states with higher concentration of COVID cases.
+
+**Question 3**
+
+a. I would use a lollipop plot to visualize each student's assessment score.
+
+b. 
+
+- Range
+
+- Shape
+
+- Distribution
+
+- Sample Size
+
+**Question 4**
+
+a. Geom was changed: the first is a strip plot and the second is a side-by-side boxplot.
+
+b. There was a coord_flip() here, the x and y axes are flipped.
+
+c. Position is changed, the second graph has the points jittered and the boxplots are slightly shifted.
+
+**Question 5**
+
+a. I prefer PLOT 1 because it includes 0 in the x-axis, making sure the data is not misleading at all.
+
+b. I prefer PLOT 1 because it is easier to visualize the trends in homeruns by position when faceted; the coloured lines are too scrambled together to easily visualize.
+
+
+
+
+

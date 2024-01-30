@@ -1,0 +1,61 @@
+---
+title: "Class Prep 04"
+author: "Brody Pinto"
+format: 
+  html:
+    embed-resources: true
+---
+
+1. What is the difference between a colour’s hue and a colour’s intensity?
+
+A colour's hue is what we perceive the colour to be: red, green, blue, etc. A colour's intensity refers to the vividness, also called chrominance.
+
+<br>
+
+2. Think of an example where you would want to use a sequential colour scale that’s different from the one given in the text. Then, think of examples where you would use a diverging colour scale and an unordered colour scale.
+
+You could use a sequential colour scale to represent global COVID cases, for example. You could use a diverging colour scale to visualize atmospheric water vapor levels. You could use an unordered colour scale to represent different marine invertebrate species.
+
+<br>
+
+3. Some gestalt inferences take priority over others. Using Figure 1.21, give an example of a gestalt inference that takes priority over another one.
+
+Similarity takes priority over proximity as you view the three blue circles as a group instead of seeing three vertical groups of circles.
+
+<br>
+
+4. “Bar charts are better than Pie charts for visualizing a single categorical variable.” Explain how results shown in Figure 1.23 support this claim.
+
+Theses results show that bar charts, offering viewers an easy comparison on a common scale results in better estimation performance than using angle-based comparisons (pie charts). Acute angles are generally underestimated and obtuse angles tend to be overestimated.
+
+<br>
+
+5. Suppose you have a scatterplot of height on the y-axis vs. weight on the x-axis for people born in Canada, Mexico, and the United States. You now want to explore whether the relationship is different for people born in the United States, people born in Canada, and people born in Mexico. Should you use different shapes to distinguish the three countries or should you use different colours? Explain using either Figure 1.24 or 1.25.
+
+Based on Figure 1.25, the use of an unordered colour scheme makes it easier to distinguish differences between groups. The different shapes take slightly longer to make comparisons.
+
+<br>
+
+6. When might you use the left-side of Figure 1.27 to show the law school data? When might you use the right-side of Figure 1.27 to show the law school data?
+
+You might use the left side when you're trying to emphasize the rapid decline in law school enrollments in such a short period of time in 2010. The decline looks much less drastic in the right side, thus you might use the right side to talk about the steady increase in law school enrollments up until 2010 when it dropped down about to where it started in 1973.
+
+<br>
+
+7. Summary: What are two takeaways from Sections 1.3-1.7?
+
+1: It is nearly always better, when making comparisons, to have a common baseline to compare from. 2: When it comes to preattentive pop-out, a difference in color serves better at popping out to the viewer than a difference in shape.
+
+<br>
+
+8. What is one question that you have about the reading?
+
+Is there some sort of hierarchy for the gestalt rules or is it always depended upon the situation?
+
+<br>
+
+
+
+
+
+
